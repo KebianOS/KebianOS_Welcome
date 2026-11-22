@@ -1,11 +1,12 @@
 [Desktop Entry]
-Type=Application
-Name=Welcome to KebianOS
-Name[es]=Bienvenido a KebianOS
-Comment=Accesos rápidos para configurar tu sistema
-Comment[es]=Accesos rápidos para configurar tu sistema
-Exec=kebianoswelcome
-Icon=preferences-system
-Terminal=false
 Categories=Utility;
+Comment[es_MX]=Accesos rápidos para configurar tu sistema
+Comment=Accesos rápidos para configurar tu sistema
+Exec=/opt/kebianoswelcome/kebianoswelcome
+Icon=/usr/share/pixmaps/kebianoswelcome.png
+Name[es_MX]=Bienvenido a KebianOS
+Name=Bienvenido a KebianOS
 StartupNotify=true
+Terminal=false
+Type=Application
+X-KDE-SubstituteUID=false

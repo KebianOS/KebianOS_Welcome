@@ -14,14 +14,16 @@ run: $(BIN)
 
 deb: $(BIN)
 	rm -rf build
-	mkdir -p build/debian/source build/usr/bin build/usr/share/applications
+	mkdir -p build/debian/source build/usr/bin build/usr/share/applications build/opt/kebianoswelcome build/usr/share/pixmaps
 	cp changelog control install rules build/debian/
 	cp source/format build/debian/source/format
-	cp $(BIN) build/usr/bin/
+	cp kebianoswelcome.png build/usr/share/pixmaps/
+	cp $(BIN) build/opt/kebianoswelcome/
 	cp kebianoswelcome.desktop build/usr/share/applications/
 	cd build && dpkg-buildpackage -us -uc -b
 
-install: deb
+install: clean
+	make deb
 	sudo apt install ./$(DEB)
 
 clean:

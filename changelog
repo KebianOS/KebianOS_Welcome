@@ -1,3 +1,16 @@
+kebianos-welcome (0.0.3) unstable; urgency=low
+
+    * Modificacion de dektop y directorio de la aplicacio
+    * Se añadio nuevo icono para la app
+
+ -- Daniel <danny.mg302@gmail.com>  Sun, 22 Nov 2026 14:05:00 -0500
+
+kebianos-welcome (0.0.2) unstable; urgency=low
+
+    * Creacion de el desktop y modificacion de como se ejecuta
+
+ -- Daniel <danny.mg302@gmail.com>  Sun, 22 Nov 2026 13:49:00 -0500
+
 kebianos-welcome (0.0.1) unstable; urgency=low
 
     * Creacion inicial y pruevas
