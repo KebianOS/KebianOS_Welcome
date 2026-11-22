@@ -1,0 +1,14 @@
+Source: kebianos-welcome
+Section: utils
+Priority: optional
+Maintainer: Danny <danny.mg302@gmail.com>
+Build-Depends: debhelper-compat (= 13), libgtk-3-dev, pkgconf
+Standards-Version: 4.7.0
+Rules-Requires-Root: no
+Homepage: https://github.com/KebianOS/KebianOS_Welcome
+
+Package: kebianos-welcome
+Architecture: any
+Description: Pantalla de bienvenida de KebianOS
+ Aplicación de bienvenida con accesos rápidos para configurar
+ el sistema, como los ajustes generales y la apariencia.
