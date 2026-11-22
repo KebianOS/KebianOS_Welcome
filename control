@@ -1,7 +1,7 @@
 Source: kebianos-welcome
 Section: utils
 Priority: optional
-Maintainer: Danny <danny.mg302@gmail.com>
+Maintainer: Daniel <danny.mg302@gmail.com>
 Build-Depends: debhelper-compat (= 13), libgtk-3-dev, pkgconf
 Standards-Version: 4.7.0
 Rules-Requires-Root: no

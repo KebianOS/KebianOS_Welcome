@@ -1,37 +1,31 @@
-CC     = gcc
-CFLAGS = $(shell pkg-config --cflags gtk+-3.0) -Wall
-LIBS   = $(shell pkg-config --libs gtk+-3.0)
-DEB     = kebianos-welcome_$(VERSION)_$(ARCH).deb
+CC      = gcc
+CFLAGS  = $(shell pkg-config --cflags gtk+-3.0) -Wall -O2 -g
+LIBS    = $(shell pkg-config --libs gtk+-3.0)
+BIN     = kebianoswelcome
 VERSION = $(shell dpkg-parsechangelog -l changelog -S Version)
 ARCH    = $(shell dpkg --print-architecture)
+DEB     = kebianos-welcome_$(VERSION)_$(ARCH).deb
 
+$(BIN): main.c
+	$(CC) $(CFLAGS) -o $@ $< $(LIBS)
 
-kebianoswelcome: main.c
-	$(CC) $(CFLAGS) -o kebianoswelcome main.c $(LIBS)
+run: $(BIN)
+	./$(BIN)
 
-run: kebianoswelcome
-	./kebianoswelcome
-
-clean:
-	rm -f kebianoswelcome
+deb: $(BIN)
 	rm -rf build
-	rm *.deb
-	rm *.buildinfo
-	rm *.changes
-
-deb: kebianoswelcome
-	sudo apt install debhelper-compat
-	mkdir -p build/debian build/usr/bin build/debian/source build/usr/share/applications
-	cp changelog build/debian
-	cp kebianoswelcome build/usr/bin
-	cp install build/debian
-	cp rules build/debian
+	mkdir -p build/debian/source build/usr/bin build/usr/share/applications
+	cp changelog control install rules build/debian/
 	cp source/format build/debian/source/format
-	cp kebianoswelcome.desktop build/usr/share/applications
-	cp control build/debian
+	cp $(BIN) build/usr/bin/
+	cp kebianoswelcome.desktop build/usr/share/applications/
 	cd build && dpkg-buildpackage -us -uc -b
 
 install: deb
 	sudo apt install ./$(DEB)
 
-.PHONY: run clean
+clean:
+	rm -rf $(BIN) build
+	rm -f *.deb *.buildinfo *.changes
+
+.PHONY: run deb install clean
