@@ -2,4 +2,4 @@
 
 
 ## Compilar
-" gcc `pkg-config --cflags gtk+-3.0` -o main main.c `pkg-config --libs gtk+-3.0` "
+Ejecuta en la misma carpeta de el proyecto `make` o `make run`
