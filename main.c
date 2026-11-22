@@ -45,8 +45,9 @@ static void activated (GtkApplication *app, gpointer user_data) {
     fil2 = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
     gtk_box_pack_start (GTK_BOX (box), fil2, FALSE, FALSE, 0);
 
-    image = gtk_image_new_from_icon_name ("firefox", GTK_ICON_SIZE_DIALOG);
-    gtk_box_pack_start (GTK_BOX (fil2), image, FALSE, FALSE, 0);
+    image = gtk_image_new_from_icon_name ("preferences-desktop-theme-global", GTK_ICON_SIZE_DIALOG); // Se define para mostrar el icono de Preferencias de thema global
+    gtk_box_pack_start (GTK_BOX (fil2), image, FALSE, FALSE, 0); // Se declara para añadir el icono en la pantalla
+
     button = gtk_button_new_with_label ("Configurar Apariencia");
     g_signal_connect (button, "clicked", G_CALLBACK (abrir_apariencia), NULL);
     gtk_widget_set_valign (button, GTK_ALIGN_CENTER);
